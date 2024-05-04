@@ -38,7 +38,7 @@ Destaca-se que este projeto é desenvolvido como produto da disciplina de Redes 
 * Baixe a arquivo com o dataset e coloque-o na mesma parta que o arquivo "mlp_final.ipynb".
 * Não é necessário remenomear o arquivo de dados.
 
-OBS.: O dataset e a lista com todos os atributos estão presentes neste repositório.
+OBS.: O dataset utilizado e a lista com todos os atributos presentes no dataset estão armazenada neste repositório intituladas "mlp_final.ipynb" e "", respectivamente.
 
 # Lista de Abreviaturas e Siglas
 
