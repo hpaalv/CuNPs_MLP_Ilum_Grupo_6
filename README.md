@@ -58,7 +58,7 @@ A escolha desse tipo de dataset permite uma abordagem multidisciplinar, integran
 
 # Metodologia
 
-Inicialmente, procedeu-se com a importação das bibliotecas necessárias e dos dados, os quais estavam subdivididos em conjuntos, de validação, treino e teste. Essa etapa visava preparar o terreno para uma análise exploratória a fim de compreender melhor os componentes dos dados e definir os passos subsequentes. Assim, decidiu-se utilizar apenas o subconjunto de validação devido à grande quantidade de dados disponíveis.
+Inicialmente, procedeu-se com a importação das bibliotecas necessárias e dos dados, os quais foram baixados na referência [1], foram carregados em um Dataframe da biblioteca Pandas e aplicado o método "dropna" - Responsável por remover as linhas que contêm valores ausentes (NaN) do DataFrame [7] . Essa etapa visava preparar o terreno para uma análise exploratória, com dados relevantes, a fim de compreender melhor os componentes dos dados e definir os passos subsequentes.
 
 Durante a análise detalhada, identificou-se que o conjunto continha mais de 40 milhões de registros, caracterizando-se como bigdata. Essa natureza dos dados apresentou desafios significativos em termos de complexidade e exigiu habilidades específicas. Além disso, devido a estrutura e caracterização dos dados, um modelo de previsão utilizando séries temporais também seria possível. É importante ressaltar que o tratamento de séries temporais não estava previsto no conteúdo programático da disciplina, mas a natureza flexível do dataset permitiu a liberdade de uma interpretação fora desse contexto. Portanto, o contexto da análise temporal dos dados (datação) não foi um atributo principal da predição, contudo o atributo data foi desmembrado e utilizado como alguns dos vários atributos no modelo de predição. 
 
@@ -150,9 +150,7 @@ Será se isso persiste em outros datasets ou apenas no nosso?
 
 [6] Dados estruturados de conjunto de dados | Central da Pesquisa Google | Documentação. Disponível em: <https://developers.google.com/search/docs/appearance/structured-data/dataset?hl=pt-br>. Acesso em: 11 nov. 2023.
 ‌
-[6] Federal Information Processing Standards. Disponível em: <https://pt.wikipedia.org/wiki/Federal_Information_Processing_Standards>. Acesso em: 11 nov. 2023.
-
-[7] "O que é e como funciona o algoritmo KNN" | Didática Tech. Disponível em: <https://didatica.tech/o-que-e-e-como-funciona-o-algoritmo-knn/>. Acesso em: 15 nov. 2023.
+[7] Pandas. DataFrame.dropna | Pandas. Disponível em: <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html>. Acesso em: 02 mai. 2024.
 
 [8] "sklearn.neighbors.KNeighborsClassifier" | scikit-learn | Documentação. Disponível em: <https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html>. Acesso em: 15 nove. 2023.
 
