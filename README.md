@@ -38,63 +38,17 @@ Destaca-se que este projeto é desenvolvido como produto da disciplina de Redes 
 * Baixe a arquivo com o dataset e coloque-o na mesma parta que o arquivo "mlp_final.ipynb".
 * Não é necessário remenomear o arquivo de dados.
 
-OBS.: O dataset utilizado e a lista com todos os atributos presentes no dataset estão armazenada neste repositório intituladas "mlp_final.ipynb" e "", respectivamente.
-
-# Lista de Abreviaturas e Siglas
-
-PCA (Principal Component Analysis)
-
-O dataset utilizado contém os seguintes atributos:
-
-WS10M_MIN = Velocidade do vento mínima a 10 metros (m/s)
-
-QV2M = Humidade específica a 2 metros (g/kg)
-
-T2M_RANGE = Faixa de temperatura a 2 metros (C)
-
-WS10M = Velocidade do vento a 10 metros (m/s)
-
-T2M = Temperatura a 2 metros (C)
-
-WS50M_MIN = Velocidade do vento mínima a 50 metros (m/s)
-
-T2M_MAX = Temperatura máxima a 2 metros (C)
-
-WS50M = Velocidade do vento a 50 metros (m/s)
-
-TS = Temperatura da crosta da Terra (C)
-
-WS50M_RANGE = Faixa de velocidade do vento a 50 metros (m/s)
-
-WS50M_MAX = Velocidade do vento máxima a 50 metros (m/s)
-
-WS10M_MAX = Velocidade do vento máxima a 10 metros (m/s)
-
-WS10M_RANGE = Faixa de velocidade do vento a 10 metros (m/s)
-
-PS = Pressão da superfície (kPa)
-
-T2MDEW = Ponto de orvalho a 2 metros (C)
-
-T2M_MIN = Temperatura mínima a 2 metros (C)
-
-T2MWET = Temperatura do termômetro Wet Bulb a 2 metros (C)
-
-PRECTOT = Precipitação (mm; dia-1)
-
-score = Medidas de seca (0-5; a cada 7 dias)
-
-date = Data da medida
-
-fips = Padrões emitidos para garantir segurança e interoperabilidade de computador em sistemas de criptografia (referente a locais dos EUA) [6]
+OBS.: O dataset utilizado e a lista com todos os atributos presentes no dataset estão armazenados neste repositório em arquivos intitulados "mlp_final.ipynb" e "Cu_nanoparticle_headerlist.pdf", respectivamente.
 
 # Introdução
 
-A predição de secas é um problema crítico em muitas partes do mundo, pois as secas podem causar impactos devastadores na agricultura, no abastecimento de água e no meio ambiente. Portanto, é fundamental entendermos como antecipar a ocorrência de secas, permitindo a implementação de medidas preventivas e o planejamento adequado, incentivando um investimento tecnológico e científico maior nesta área. 
+Materiais em escala nanométrica exibem características distintas em comparação com materiais em escalas macrométricas, devido a uma série de fatores, incluindo a superfície exposta dos materiais. Em escalas nanométricas, a relação entre área de superfície e volume é amplificada, tornando a superfície de contato proporcionalmente maior em relação ao volume do material. Essa proporção aumentada da superfície confere propriedades aos materiais nanoestruturados. [2].
 
-Os dados sobre solo e clima desempenham um papel fundamental na compreensão e predição de secas. As características do solo, como o teor de umidade, a textura e a composição química, afetam diretamente a capacidade do solo de reter água e suportar a vegetação. Além disso, as condições climáticas, como a precipitação, a temperatura e a umidade do ar, têm um impacto direto na quantidade de água disponível no solo. 
+Os nanomateriais possuem uma variedade de aplicações, incluindo catálise, imagiologia por ressonância magnética e liberação controlada de fármacos. Além disso, processos de modificação superficial podem ser empregados para mitigar os efeitos citotóxicos associados a certos materiais. Essas modificações podem incluir revestimentos ou funcionalizações que tornam a interação com o ambiente biológico mais favorável, reduzindo assim os efeitos adversos. São classificadas como nanométricas partículas com dimensões tipicamente entre 1-100 nm. [2][3][4]. Portanto, é fundamental entendermos como a energia total e de formação influencia no produto final e nas características para a qual a nanopartícula será designada, permitindo a implementação de medidas preventivas e o planejamento adequado, incentivando um investimento tecnológico e científico maior nesta área.
 
-A ciência que é utilizada para esta problemática é o Aprendizado de Máquina (Machine Learning), que é um subconjunto da Inteligência Artificial (IA) o qual permite que um sistema aprenda e melhore de forma autônoma usando redes neurais e aprendizado profundo, sem ser programado explicitamente, alimentando-o com grandes quantidades de dados. [2] Dessa forma, seria viável programar um algoritmo que tivesse os dados de solo e clima como entrada (input), e retornasse uma saída (output) da previsão de seca. 
+A ciência que é utilizada para esta problemática é a Rede Neural tipo MLP (multilayer perceptron) ou, em português, perceptron multicamadas, que é uma rede neural artificial moderna de alimentação direta (feedforward). Essa rede é composta por várias camadas, incluindo uma camada de entrada, uma ou mais camadas ocultas e uma camada de saída.[5].
+
+A rede recebe os dados na camada de entrada com seus respectivos pesos. Cada neurônio possui uma função de ativação e um viez ao qual realizará cáculos. Durante o processo de aprendizado, os pesos de conexão na rede são ajustados após o processamento de cada dado com base na quantidade de erro na saída em comparação com o resultado esperado. O qual permite que um sistema aprenda e melhore de forma autônoma, sem ser programado explicitamente, alimentando-o com grandes quantidades de dados. [5]
 
 Esses dados podem ser coletados de diversas formas possíveis, variando de acordo com sua finalidade e recursos para a pesquisa. Entretanto, algo em comum com todo qualquer tipo de dado é que eles são armazenados em dataset. 
 
@@ -187,15 +141,15 @@ Será se isso persiste em outros datasets ou apenas no nosso?
 
 [1] Copper Nanoparticle Data Set. Disponível em: <https://data.csiro.au/collection/csiro:42598>. Acesso em: 09 abr. 2024.
 
-[2] O que é Machine Learning?  |  Google Cloud. Disponível em: <https://cloud.google.com/learn/w hat-is-machine-learning?hl=pt-br>. Acesso em: 11 nov. 2023.
+[2] OS NANOMATERIAIS E A DESCOBERTA DE NOVOS MUNDOS NA BANCADA DO QUÍMICO  |  Manuel A. Martins e Tito Trindade - Quim. Nova, Vol. 35, No. 7, 1434-1446, 2012. Disponível em: <https://www.scielo.br/j/qn/a/P8tgywDnt7nS6tGyHdQ3BCF/>. Acesso em: 02 mai. 2024.
 
-[3] Dados estruturados de conjunto de dados | Central da Pesquisa Google | Documentação. Disponível em: <https://developers.google.com/search/docs/appearance/structured-data/dataset?hl=pt-br>. Acesso em: 11 nov. 2023.
-
-‌
-[4] NASA. NASA POWER | Prediction Of Worldwide Energy Resources. Disponível em: <https://power.larc.nasa.gov/>. Acesso em: 11 nov. 2023.
+[3] Ojha, N. K.; Zyryanov, G. V.; Majee, A.; Charushin, V. N.; Chupakhin, O. N.; Santra, S. Copper nanoparticles as inexpensive and efficient catalyst: A valuable contribution inorganic synthesis. Coordination Chemistry Reviews 2017, 353, 1–57.11.
 
 ‌
-[5] Contact Us | U.S. Drought Monitor. Disponível em: <https://droughtmonitor.unl.edu/About/ContactUs.aspx>. Acesso em: 11 nov. 2023.
+[4] Ssekatawa K, Byarugaba DK, Angwe MK, Wampande EM, Ejobi F, Nxumalo E, Maaza M, Sackey J, Kirabira JB. Phyto-Mediated Copper Oxide Nanoparticles for Antibacterial, Antioxidant and Photocatalytic Performances. Front Bioeng Biotechnol. 2022 Feb 16;10:820218. doi: 10.3389/fbioe.2022.820218. PMID: 35252130; PMCID: PMC8889028.
+
+‌
+[5] Multilayer perceptron | Wikipedia, the free encyclopedia. Disponível em <https://en.wikipedia.org/wiki/Multilayer_perceptron#:~:text=A%20multilayer%20perceptron%20(MLP)%20is,that%20is%20not%20linearly%20separable.>. Acesso em: 29 abr. 2024.
 
 ‌
 [6] Federal Information Processing Standards. Disponível em: <https://pt.wikipedia.org/wiki/Federal_Information_Processing_Standards>. Acesso em: 11 nov. 2023.
