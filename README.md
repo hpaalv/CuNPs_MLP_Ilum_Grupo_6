@@ -58,9 +58,9 @@ A escolha desse tipo de dataset permite uma abordagem multidisciplinar, integran
 
 # Metodologia
 
-Inicialmente, procedeu-se com a importação das bibliotecas necessárias e dos dados, os quais foram baixados na referência [1], foram carregados em um Dataframe da biblioteca Pandas e aplicado o método "dropna" - Responsável por remover as linhas que contêm valores ausentes (NaN) do DataFrame [7] . Essa etapa visava preparar o terreno para uma análise exploratória, com dados relevantes, a fim de compreender melhor os componentes dos dados e definir os passos subsequentes.
+Inicialmente, procedeu-se com a importação das bibliotecas necessárias e dos dados, os quais foram baixados na referência [1], foram carregados em um Dataframe da biblioteca Pandas e aplicado o método "dropna" - Responsável por remover as linhas que contêm valores ausentes (NaN) do DataFrame [7] . Essa etapa visava preparar o terreno para uma análise e predição, com dados relevantes. Além disso um documento contendo os significados e as unidades de cada atributo está presente neste diretório para aqueles que desejam entender melhor os dados aplicados no projeto. 
 
-Durante a análise detalhada, identificou-se que o conjunto continha mais de 40 milhões de registros, caracterizando-se como bigdata. Essa natureza dos dados apresentou desafios significativos em termos de complexidade e exigiu habilidades específicas. Além disso, devido a estrutura e caracterização dos dados, um modelo de previsão utilizando séries temporais também seria possível. É importante ressaltar que o tratamento de séries temporais não estava previsto no conteúdo programático da disciplina, mas a natureza flexível do dataset permitiu a liberdade de uma interpretação fora desse contexto. Portanto, o contexto da análise temporal dos dados (datação) não foi um atributo principal da predição, contudo o atributo data foi desmembrado e utilizado como alguns dos vários atributos no modelo de predição. 
+Durante a análise detalhada, identificou-se que o conjunto continha muitos dados e grande parte deles eram valores nulos, por isso a implementação do método "dropna" foi necessária. Os dados restantes foram divididos entre features e targets, cujos targets são os valores de energia total e energia de formação das nanopartículas de cobre, e após em treino e teste. As porcentagens usadas como parâmetros para tal atividade foram definidas como 90% para treino e 10% para teste, com a semente aleatória sendo 10. A semente aleatória é um número utilizado para inicializar o gerador de números aleatórios garantindo que os resultados de operações que envolvem aleatoriedade possam ser reproduzíveis.[8]
 
 Durante o processo, também foi constatada a presença de valores nulos (NaN), os quais foram exclusivamente encontrados na coluna "score" devido à coleta de dados em intervalos de sete dias. Esses valores foram removidos. A coluna "fips" (Federal Information Processing Standards), que representa os padrões desenvolvidos pelo National Institute of Standards and Technology, foi analisada para contabilizar o número de locais distintos catalogados nos dados, com o intuito de estabelecer relações entre indicadores climáticos. Entretanto, devido a esse propósito específico, a decisão tomada foi a remoção da coluna, uma vez que a análise parcial das regiões não era um objetivo.
 
@@ -152,7 +152,7 @@ Será se isso persiste em outros datasets ou apenas no nosso?
 ‌
 [7] Pandas. DataFrame.dropna | Pandas. Disponível em: <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html>. Acesso em: 02 mai. 2024.
 
-[8] "sklearn.neighbors.KNeighborsClassifier" | scikit-learn | Documentação. Disponível em: <https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html>. Acesso em: 15 nove. 2023.
+[8] Python Random seed() Method | w3 schools | Documentação. Disponível em: <https://www.w3schools.com/python/ref_random_seed.asp>. Acesso em: 02 mai. 2024.
 
 [9] "sklearn.pipeline.Pipeline" | scikit-learn | Documentação. Disponível em: <https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html>. Acesso em: 15 nov. 2023.
 
