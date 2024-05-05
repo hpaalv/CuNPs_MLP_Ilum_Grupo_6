@@ -66,14 +66,11 @@ FALAR SOBRE A NORMALIZAÇÃO E SOBRE A LOGARITMIZAÇÃO
 
 O conjunto foi submetido a uma análise de multicolinearidade (Seleção VIF - Variance Inflation Factor). A multicolinearidade existe no momento em que duas ou mais variáveis independentes em um modelo de regressão múltipla apresentam alta correlação entre si. Quando algumas características são muito correlacionadas, pode-se ter dificuldade em diferenciar entre seus efeitos individuais sobre a variável dependente, ou seja, quando há multicolinearidade significativa entre as variáveis independentes em um modelo, isso pode introduzir viés nos coeficientes de regressão e afetar a interpretabilidade do modelo. O VIF funciona calculando a multicolinearidade de cada variável independente (coluna) em relação às outras variáveis independentes e com isso ele retorna um valor, quanto maior o valor do VIF para uma variável independente, maior é a multicolinearidade dessa variável com as outras variáveis independentes. [9].
 
-O VIF implementado no código presente neste repositório foi disponibilizado pelo docente Daniel Roberto Cassar, que ministra a Disciplina de Redes Neurais e Algoritmos Genéticos da Universidade ILUM-Escola de Ciência. O seu funcionamento procede da seguinte maneira
+O VIF implementado no código presente neste repositório foi disponibilizado pelo docente Daniel Roberto Cassar, que ministra a Disciplina de Redes Neurais e Algoritmos Genéticos da Universidade ILUM-Escola de Ciência. O seu funcionamento procede da seguinte maneira:
 
-  
-A escolha de realizar essa separação teve como objetivo determinar a ferramenta de seleção de atributos mais eficaz para o conjunto de dados escolhido, considerando as predições a serem realizadas. Após essa fase, os conjuntos foram divididos em treino e teste, dando início ao processo de realização das predições.
+O algoritmo realiza uma seleção de variáveis com base no VIF. Ele recebe um array NumPy  e uma lista contendo os dados e os nomes das variáveis independentes, respectivamente. Possui também um o limite máximo para o VIF, variáveis com VIF maior que esse valor serão removidas e armazenadas numa lista. O processo segue até que todas as variáveis tenham um VIF abaixo do limite especificado. Por fim, a função retorna os dados das variáveis independentes atualizadas, a lista atualizada de nomes de variáveis e a lista de variáveis removidas.
 
-### Modelos de predição utilizados
-
-*MLP
+Em seguida foi realizada a MLP
 
 
 
