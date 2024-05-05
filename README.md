@@ -35,7 +35,7 @@ Destaca-se que este projeto é desenvolvido como produto da disciplina de Redes 
 
 * Baixe o arquivo intitulado "mlp_final.ipynb" desse github.
 * Acesse o link: <https://data.csiro.au/collection/csiro:42598>.[1].
-* Baixe a arquivo com o dataset e coloque-o na mesma parta que o arquivo "mlp_final.ipynb".
+* Baixe a arquivo com o dataset e coloque-o na mesma pasta que o arquivo "mlp_final.ipynb".
 * Não é necessário remenomear o arquivo de dados.
 
 OBS.: O dataset utilizado e a lista com todos os atributos presentes no dataset estão armazenados neste repositório em arquivos intitulados "mlp_final.ipynb" e "Cu_nanoparticle_headerlist.pdf", respectivamente.
