@@ -35,7 +35,7 @@ Destaca-se que este projeto é desenvolvido como produto da disciplina de Redes 
 
 * Baixe o arquivo intitulado "mlp_final.ipynb" desse github.
 * Acesse o link: <https://data.csiro.au/collection/csiro:42598>.[1].
-* Baixe a arquivo com o dataset e coloque-o na mesma pasta que o arquivo "mlp_final.ipynb".
+* Baixe a arquivo com o dataset e coloque-o na mesma parta que o arquivo "mlp_final.ipynb".
 * Não é necessário remenomear o arquivo de dados.
 
 OBS.: O dataset utilizado e a lista com todos os atributos presentes no dataset estão armazenados neste repositório em arquivos intitulados "mlp_final.ipynb" e "Cu_nanoparticle_headerlist.pdf", respectivamente.
@@ -62,42 +62,20 @@ Inicialmente, procedeu-se com a importação das bibliotecas necessárias e dos 
 
 Durante a análise detalhada, identificou-se que o conjunto continha muitos dados e grande parte deles eram valores nulos, por isso a implementação do método "dropna" foi necessária. Os dados restantes foram divididos entre features e targets, cujos targets são os valores de energia total e energia de formação das nanopartículas de cobre, e após em treino e teste. As porcentagens usadas como parâmetros para tal atividade foram definidas como 90% para treino e 10% para teste, com a semente aleatória sendo 10. A semente aleatória é um número utilizado para inicializar o gerador de números aleatórios garantindo que os resultados de operações que envolvem aleatoriedade possam ser reproduzíveis.[8]
 
-Durante o processo, também foi constatada a presença de valores nulos (NaN), os quais foram exclusivamente encontrados na coluna "score" devido à coleta de dados em intervalos de sete dias. Esses valores foram removidos. A coluna "fips" (Federal Information Processing Standards), que representa os padrões desenvolvidos pelo National Institute of Standards and Technology, foi analisada para contabilizar o número de locais distintos catalogados nos dados, com o intuito de estabelecer relações entre indicadores climáticos. Entretanto, devido a esse propósito específico, a decisão tomada foi a remoção da coluna, uma vez que a análise parcial das regiões não era um objetivo.
+FALAR SOBRE A NORMALIZAÇÃO E SOBRE A LOGARITMIZAÇÃO
 
-Além disso, procedeu-se à identificação e eliminação de valores anômalos por meio do método de detecção de outliers utilizando o desvio padrão. Este método envolve a avaliação da distância de um dado específico em relação à média geral dos dados, sendo essa distância medida em unidades de desvio padrão.
+O conjunto foi submetido a uma análise de multicolinearidade (Seleção VIF - Variance Inflation Factor). A multicolinearidade existe no momento em que duas ou mais variáveis independentes em um modelo de regressão múltipla apresentam alta correlação entre si. Quando algumas características são muito correlacionadas, pode-se ter dificuldade em diferenciar entre seus efeitos individuais sobre a variável dependente, ou seja, quando há multicolinearidade significativa entre as variáveis independentes em um modelo, isso pode introduzir viés nos coeficientes de regressão e afetar a interpretabilidade do modelo. O VIF funciona calculando a multicolinearidade de cada variável independente (coluna) em relação às outras variáveis independentes e com isso ele retorna um valor, quanto maior o valor do VIF para uma variável independente, maior é a multicolinearidade dessa variável com as outras variáveis independentes. [9].
 
-A coluna "data" foi desmembrada em três novas colunas ("day", "month" e "year"), como dito anteriormente.
-
-A partir desse ponto, trabalhou-se com três tipos distintos de conjuntos de dados, cada um submetido a diferentes métodos de seleção de atributos:
-]
-O conjunto foi submetido a uma análise de multicolinearidade (Seleção VIF - Variance Inflation Factor).
+O VIF implementado no código presente neste repositório foi disponibilizado pelo docente Daniel Roberto Cassar, que ministra a Disciplina de Redes Neurais e Algoritmos Genéticos da Universidade ILUM-Escola de Ciência. O seu funcionamento procede da seguinte maneira
 
   
 A escolha de realizar essa separação teve como objetivo determinar a ferramenta de seleção de atributos mais eficaz para o conjunto de dados escolhido, considerando as predições a serem realizadas. Após essa fase, os conjuntos foram divididos em treino e teste, dando início ao processo de realização das predições.
 
 ### Modelos de predição utilizados
 
-Existem vários modelos de predição disponíveis para uso. A escolha dos modelos abaixo foi baseada na premissa de avaliar como cada um reagia diante dos novos datasets. Cada modelo foi testado com os conjuntos de dados recém-criados, buscando realizar uma comparação de eficiência entre eles.
+*MLP
 
-**Modelo KNN**
 
-Em síntese, o algoritmo KNN (K-Nearest Neighbors) busca classificar cada amostra de um conjunto de dados ao avaliar sua proximidade em relação aos vizinhos mais próximos. Caso a maioria desses vizinhos pertença a uma determinada classe, a amostra em análise será classificada nessa categoria específica. Este método fundamenta-se na ideia de que objetos semelhantes tendem a estar próximos uns dos outros no espaço de características, facilitando a atribuição de rótulos com base na predominância das classes dos vizinhos mais próximos.[7].
-
-**Árvore de Decisão**
-
-Conforme indicado pelo próprio nome, o algoritmo cria vários pontos de decisão, representados como "nós" na árvore. Em cada nó, a decisão é tomada para seguir por um caminho específico. Esses caminhos são representados pelos "ramos". Essa estrutura fundamental de uma árvore de decisão desempenham o papel de conferenciar e indicar o direcionamento para os ramos subsequentes do fluxo de decisão.[10].
-
-**Floresta Aleatória**  
-
-A Floresta Aleatória, um algoritmo de aprendizagem supervisionada, cria uma "floresta" composta por uma combinação (ensemble) de árvores de decisão, frequentemente treinadas por meio do método de bagging. A essência do bagging reside na ideia central de que a fusão de modelos de aprendizado contribui para uma melhoria no resultado global.
-
-Uma vantagem da Floresta Aleatória é sua aplicabilidade tanto em tarefas de classificação quanto em tarefas de regressão, abrangendo a maioria dos sistemas atuais de aprendizado de máquina.[11].
-
- *SMOTE*
-
-O SMOTE opera com a proposta fundamental de gerar exemplos sintéticos para a classe minoritária, visando ampliar sua representação no conjunto de dados. Esse processo envolve a criação de instâncias "sintéticas" entre pares de instâncias da classe minoritária. A técnica, por sua vez, calcula a diferença entre uma instância da classe minoritária e seus vizinhos mais próximos, gerando novas instâncias ponderadas por essa diferença.
-
-O SMOTE não é um modelo preditivo em si, mas sim uma ferramenta projetada para equilibrar a quantidade de dados no conjunto. No conjunto de dados utilizado sua aplicação combinou-se com uma segunda floresta aleatória. Esse procedimento serve para verificar se a introdução de dados sintéticos no conjunto de dados produz impactos significativos.
 
 # Resultados e Discussões
 
@@ -151,9 +129,9 @@ Será se isso persiste em outros datasets ou apenas no nosso?
 ‌
 [7] Pandas. DataFrame.dropna | Pandas. Disponível em: <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html>. Acesso em: 02 mai. 2024.
 
-[8] Python Random seed() Method | w3 schools | Documentação. Disponível em: <https://www.w3schools.com/python/ref_random_seed.asp>. Acesso em: 02 mai. 2024.
+[8] Python Random seed() Method | w3 schools. Disponível em: <https://www.w3schools.com/python/ref_random_seed.asp>. Acesso em: 02 mai. 2024.
 
-[9] "sklearn.pipeline.Pipeline" | scikit-learn | Documentação. Disponível em: <https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html>. Acesso em: 15 nov. 2023.
+[9] Detecting Multicollinearity with VIF – Python | geeks for geeks. Disponível em: <https://www.geeksforgeeks.org/detecting-multicollinearity-with-vif-python/>. Acesso em: 02 mai. 2024.
 
 [10] "Como funciona o algoritmo Árvore de Decisão" | Didática Tech. Disponível em: <https://didatica.tech/como-funciona-o-algoritmo-arvore-de-decisao/>. Acesso em: 15 nov. 2023.
 
