@@ -69,10 +69,9 @@ Além disso, procedeu-se à identificação e eliminação de valores anômalos 
 A coluna "data" foi desmembrada em três novas colunas ("day", "month" e "year"), como dito anteriormente.
 
 A partir desse ponto, trabalhou-se com três tipos distintos de conjuntos de dados, cada um submetido a diferentes métodos de seleção de atributos:
+]
+O conjunto foi submetido a uma análise de multicolinearidade (Seleção VIF - Variance Inflation Factor).
 
-* Primeiro dataset: Este conjunto foi submetido a uma análise de multicolinearidade (Seleção VIF - Variance Inflation Factor).
-* Segundo dataset: O segundo conjunto foi redimensionado utilizando o método PCA (Principal Component Analysis), cuja principal função é verificar a quantidade de atributos que influenciam num determinado sistema.
-* Terceiro dataset: O terceiro conjunto foi submetido a ambos os métodos de seleção de atributos.
   
 A escolha de realizar essa separação teve como objetivo determinar a ferramenta de seleção de atributos mais eficaz para o conjunto de dados escolhido, considerando as predições a serem realizadas. Após essa fase, os conjuntos foram divididos em treino e teste, dando início ao processo de realização das predições.
 
