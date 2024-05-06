@@ -27,7 +27,7 @@ Trabalho de conclusão de curso da disciplina de Redes Neurais da Ilum Escola De
 
 # Resumo  
 
-Este trabalho visa explorar e propor um modelo de redes neurais tipo MLP destinado à predição da energia total e de formação de nanopartículas de prata, identificando quais os melhores (quantidade de neuônios nas camadas oculatas? ) para serem usados na rede neural para uma boa predição. Utilizanod dados com blablabla ... correlações entre diversas condições climáticas, incluindo temperatura, velocidade dos ventos, nível de umidade atmosférica, temperatura da superfície, precipitação e outros fatores relevantes. O objetivo principal é utilizar modelos de predição a partir das análises de dados climáticos, comparando-os, para predizer níveis de secas. 
+Este trabalho visa explorar e propor um modelo de redes neurais tipo MLP destinado à predição da energia total e de formação de nanopartículas de prata, identificando quais os melhores hiperparâmetros para serem usados na rede neural que resultarão numa boa predição. Utilizando dados como número de átomos, raio máximo e mínimos das partículas para encontrar correlações entre diversas condições. O objetivo principal é utilizar modelos de predição a partir das análises de dados de nanopartículas, comparando-os, para predizer sua energia total e de formação. 
 
 Destaca-se que este projeto é desenvolvido como produto da disciplina de Redes Neurais, integrante do curso de Bacharelado em Ciência e Tecnologia, oferecido pela Universidade ILUM-Escola de Ciência, instituição acadêmica vinculada ao CNPEM (Centro Nacional de Pesquisa em Energia e Materiais). 
 
@@ -68,11 +68,15 @@ O conjunto foi submetido a uma análise de multicolinearidade (Seleção VIF - V
 
 O VIF implementado no código presente neste repositório foi disponibilizado pelo docente Daniel Roberto Cassar, que ministra a Disciplina de Redes Neurais e Algoritmos Genéticos da Universidade ILUM-Escola de Ciência. O seu funcionamento procede da seguinte maneira:
 
-O algoritmo realiza uma seleção de variáveis com base no VIF. Ele recebe um array NumPy  e uma lista contendo os dados e os nomes das variáveis independentes, respectivamente. Possui também um o limite máximo para o VIF, variáveis com VIF maior que esse valor serão removidas e armazenadas numa lista. O processo segue até que todas as variáveis tenham um VIF abaixo do limite especificado. Por fim, a função retorna os dados das variáveis independentes atualizadas, a lista atualizada de nomes de variáveis e a lista de variáveis removidas.
+O algoritmo realiza uma seleção de variáveis com base no VIF. Ele recebe um array NumPy  e uma lista contendo os dados e os nomes das variáveis independentes, respectivamente. Possui também um limite máximo para o VIF. Variáveis com VIF maior que esse valor serão removidas e armazenadas numa lista. O processo segue até que todas as variáveis tenham um VIF abaixo do limite especificado. Por fim, a função retorna os dados das variáveis independentes atualizadas, a lista atualizada de nomes de variáveis e a lista de variáveis removidas.
 
-Em seguida foi realizada a MLP
+Em seguida foi realizada a MLP [5]. O Multilayer Perceptron (MLP) é um tipo de rede neural artificial composta por várias camadas, incluindo uma camada de entrada, uma ou mais camadas ocultas e uma camada de saída. Cada camada é formada por neurônios interconectados, cada um com sua própria função de ativação e viés.[10]
 
+O processo de funcionamento do MLP envolve a propagação da informação, que possui pesos, através das camadas, começando pela entrada, onde os neurônios processam os dados com base em seus viés e funções de ativação. Essa informação é então transmitida para as camadas ocultas, onde o processo é repetido, podendo possuir mais de uma camada oculta, até chegar à camada de saída, que produz os resultados finais da rede neural.[10]
 
+Durante o treinamento do MLP, utiliza-se o método de backpropagation para ajustar os pesos das conexões entre os neurônios. Se a saída da rede não corresponde à esperada, é calculado um erro, que é então retropropagado da camada de saída até a camada de entrada através de derivadas parciais. Os pesos das conexões são modificados de acordo com o erro propagado.[10]
+
+O treinamento supervisionado do MLP ocorre em dois passos. Primeiro, um padrão é apresentado à camada de entrada, e a resposta é calculada até a camada de saída. Em seguida, o erro é propagado de volta para ajustar os pesos das conexões, repetindo esse processo até que o erro seja minimizado e a rede neural produza resultados precisos.[10].
 
 # Resultados e Discussões
 
@@ -130,6 +134,6 @@ Será se isso persiste em outros datasets ou apenas no nosso?
 
 [9] Detecting Multicollinearity with VIF – Python | geeks for geeks. Disponível em: <https://www.geeksforgeeks.org/detecting-multicollinearity-with-vif-python/>. Acesso em: 02 mai. 2024.
 
-[10] "Como funciona o algoritmo Árvore de Decisão" | Didática Tech. Disponível em: <https://didatica.tech/como-funciona-o-algoritmo-arvore-de-decisao/>. Acesso em: 15 nov. 2023.
+[10] Perceptron Multi-Camadas (MLP) | icmc usp. Disponível em: <https://sites.icmc.usp.br/andre/research/neural/MLP.htm>. Acesso em: 03 mai. 2024.
 
 [11]  "O Algoritmo da Floresta Aleatória" | Medium - Machina Sapiens. Disponível em: <https://medium.com/machina-sapiens/o-algoritmo-da-floresta-aleat%C3%B3ria-3545f6babdf8>. Acesso em: 15 nov. 2023.
