@@ -1,5 +1,3 @@
-# CuNPs_MLP_Ilum_Grupo_6
-Trabalho de conclusão de curso da disciplina de Redes Neurais da Ilum Escola De Ciência, em que foi proposto a criação de uma rede neural MLP para algum tema relevante no meio científico.
 <div align="center">
   <h1>Ilum - Escola de Ciência</h1>
 </div>
@@ -78,9 +76,11 @@ Durante o treinamento do MLP, utiliza-se o método de backpropagation para ajust
 
 O treinamento supervisionado do MLP ocorre em dois passos. Primeiro, um padrão é apresentado à camada de entrada, e a resposta é calculada até a camada de saída. Em seguida, o erro é propagado de volta para ajustar os pesos das conexões, repetindo esse processo até que o erro seja minimizado e a rede neural produza resultados precisos.[10].
 
+FALAR COMO QUE FOI DISCUTIDOS A ESCOLHA DOS HIPERPARÂMETROS
+
 # Resultados e Discussões
 
-As comparações de eficiência entre os modelos de predição foram conduzidas por meio do Score. De maneira geral, o termo "score" em modelos de classificação refere-se a métricas que avaliam o desempenho do modelo na tarefa de atribuir rótulos de classe a amostras. Essas métricas são utilizadas para quantificar quão bem o modelo está fazendo suas previsões. Quanto mais próximo de 1 é o valor da quantificação, melhor o modelo.
+As comparações de eficiência entre os modelos de predição foram conduzidas por meio da diferênça entre os desempenhos dos diferentes hiperparâmetros. De maneira geral, MSE em modelos de regressão refere-se a métricas que avaliam o desempenho do modelo na tarefa de atribuir rótulos de classe a amostras. Essas métricas são utilizadas para quantificar quão bem o modelo está fazendo suas previsões. Quanto mais próximo de 1 é o valor da quantificação, melhor o modelo.
 
 Ao explorar os modelos de previsão nos três conjuntos de dados distintos, pode-se ter uma compreensão da precisão de suas predições.
 
