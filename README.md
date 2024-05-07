@@ -29,6 +29,28 @@ Este trabalho visa explorar e propor um modelo de redes neurais tipo MLP destina
 
 Destaca-se que este projeto é desenvolvido como produto da disciplina de Redes Neurais, integrante do curso de Bacharelado em Ciência e Tecnologia, oferecido pela Universidade Ilum - Escola de Ciência, instituição acadêmica vinculada ao CNPEM (Centro Nacional de Pesquisa em Energia e Materiais). 
 
+# Glossário
+
+Nanomateriais: Materiais muito pequenos que têm usos especiais em muitas áreas, como medicina e eletrônicos.
+
+Rede Neural tipo MLP (Multilayer Perceptron): Um tipo de computador que aprende com exemplos, composto por várias camadas de "neurônios" que se comunicam entre si.
+
+Dataset: Um conjunto de dados organizados em uma tabela.
+
+Mean Squared Error (MSE): Uma maneira de medir quão perto as previsões de um modelo estão dos valores reais.
+
+Root Mean Squared Error (RMSE): Uma versão mais fácil de entender do MSE, é como o MSE, mas em uma escala mais fácil de interpretar.
+
+Variância de Inflação (VIF): Uma medida que ajuda a entender se as informações em um conjunto de dados são redundantes.
+
+Função de Ativação ReLU (Rectified Linear Unit): Uma regra que diz quando os "neurônios" em um computador neural devem acender.
+
+Backpropagation: Uma maneira de ensinar um computador neural ajustando gradualmente os pesos entre os "neurônios".
+
+Logaritmização: Uma transformação que ajusta os valores dos dados para uma escala diferente, útil para tornar os dados mais fáceis de trabalhar.
+
+Normalização: Uma técnica que coloca os valores dos dados em uma faixa específica, para facilitar o treinamento de modelos.
+
 # Importando Dados 
 
 * Baixe o arquivo intitulado "mlp_final.ipynb" desse github.
@@ -75,13 +97,6 @@ Em seguida foi realizada a MLP [5]. O Multilayer Perceptron (MLP) é um tipo de 
 O processo de funcionamento do MLP envolve a propagação da informação, que possui pesos, através das camadas, começando pela entrada, onde os neurônios processam os dados com base em seus viés e funções de ativação. Essa informação é então transmitida para as camadas ocultas, onde o processo é repetido, podendo possuir mais de uma camada oculta, até chegar à camada de saída, que produz os resultados finais da rede neural.[10]
 
 Um detalhe importante a se mencionar é que nossa função de ativação não é a Sigmoide, utilziada por padrão. Decidimos, por meio dos testes, utilizar a Relu, pois esta mostrou-se mais eficaz em promover a convergência mais rápida durante o treinamento, além de ajudar a mitigar problemas de desvanecimento de gradiente. A função de ativação ReLU (Rectified Linear Unit) é conhecida por sua simplicidade e eficácia, pois ativa os neurônios quando o valor de entrada é positivo e os desativa quando é negativo, facilitando o aprendizado de representações mais discriminativas nos dados. Isso pode resultar em um treinamento mais rápido e em melhores desempenhos em muitos casos, tornando-a uma escolha popular em arquiteturas de redes neurais profundas.[11]
-
-$ 
-f(x) = \begin{cases} 
-x & \text{se } x > 0 \\
-0 & \text{caso contrário}
-\end{cases}
-$
 
 Durante o treinamento do MLP, utiliza-se o método de backpropagation para ajustar os pesos das conexões entre os neurônios. Se a saída da rede não corresponde à esperada, é calculado um erro, que é então retropropagado da camada de saída até a camada de entrada através de derivadas parciais. Os pesos das conexões são modificados de acordo com o erro propagado.[12]
 
