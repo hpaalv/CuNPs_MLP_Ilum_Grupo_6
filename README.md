@@ -74,26 +74,42 @@ Em seguida foi realizada a MLP [5]. O Multilayer Perceptron (MLP) é um tipo de 
 
 O processo de funcionamento do MLP envolve a propagação da informação, que possui pesos, através das camadas, começando pela entrada, onde os neurônios processam os dados com base em seus viés e funções de ativação. Essa informação é então transmitida para as camadas ocultas, onde o processo é repetido, podendo possuir mais de uma camada oculta, até chegar à camada de saída, que produz os resultados finais da rede neural.[10]
 
-Durante o treinamento do MLP, utiliza-se o método de backpropagation para ajustar os pesos das conexões entre os neurônios. Se a saída da rede não corresponde à esperada, é calculado um erro, que é então retropropagado da camada de saída até a camada de entrada através de derivadas parciais. Os pesos das conexões são modificados de acordo com o erro propagado.[10]
+Um detalhe importante a se mencionar é que nossa função de ativação não é a Sigmoide, utilziada por padrão. Decidimos, por meio dos testes, utilizar a Relu, pois esta mostrou-se mais eficaz em promover a convergência mais rápida durante o treinamento, além de ajudar a mitigar problemas de desvanecimento de gradiente. A função de ativação ReLU (Rectified Linear Unit) é conhecida por sua simplicidade e eficácia, pois ativa os neurônios quando o valor de entrada é positivo e os desativa quando é negativo, facilitando o aprendizado de representações mais discriminativas nos dados. Isso pode resultar em um treinamento mais rápido e em melhores desempenhos em muitos casos, tornando-a uma escolha popular em arquiteturas de redes neurais profundas.[11]
 
-O treinamento supervisionado do MLP ocorre em dois passos. Primeiro, um padrão é apresentado à camada de entrada, e a resposta é calculada até a camada de saída. Em seguida, o erro é propagado de volta para ajustar os pesos das conexões, repetindo esse processo até que o erro seja minimizado e a rede neural produza resultados precisos.[10].
+$ 
+f(x) = \begin{cases} 
+x & \text{se } x > 0 \\
+0 & \text{caso contrário}
+\end{cases}
+$
+
+Durante o treinamento do MLP, utiliza-se o método de backpropagation para ajustar os pesos das conexões entre os neurônios. Se a saída da rede não corresponde à esperada, é calculado um erro, que é então retropropagado da camada de saída até a camada de entrada através de derivadas parciais. Os pesos das conexões são modificados de acordo com o erro propagado.[12]
+
+O treinamento supervisionado do MLP ocorre em dois passos. Primeiro, um padrão é apresentado à camada de entrada, e a resposta é calculada até a camada de saída. Em seguida, o erro é propagado de volta para ajustar os pesos das conexões, repetindo esse processo até que o erro seja minimizado e a rede neural produza resultados precisos.[13].
 
 Para a escolha dos hiperparâmetros, foi pensada a necessidade de uma rede que variasse a quantidade de neurônios e camadas ocultas, para que a melhor configuração possível dos dados fosse encontrada. Os hiperparâmetros foram definidos em intervalos para que a MLP pudesse variar em diferentes arquiteturas a sua estrutura, porém sempre com os mesmos dados de entrada e saída, sem alterar a quantidade de neurônios nessas camadas nas diversas conformações.
 
-Com os hiperparâmetros definidos, um loop que inteirou de forma a criar e testar várias redes foi inserido no código, vairando a quantidade de camadas e neurônios como proposto. Para isso, criou-se duas variáveis, uma para armazenar os hiperparâmetros (a rede sem si) e outra que armazena o valor do MSE [11] (métrica adotada pelo grupo). Assim, sempre que uma nova rede fosse criada, o melhor valor do MSE dessa rede é comparado com o armazenado na variável fixa, caso esse valor fosse menor que o armazeado, ele o substitui. Assim, a rede com o valor menor também substitui a rede já colocada na variável que armazena os hiperparâmetros.
+Com os hiperparâmetros definidos, um loop que inteirou de forma a criar e testar várias redes foi inserido no código, vairando a quantidade de camadas e neurônios como proposto. Para isso, criou-se duas variáveis, uma para armazenar os hiperparâmetros (a rede sem si) e outra que armazena o valor do MSE [14] (métrica adotada pelo grupo). Assim, sempre que uma nova rede fosse criada, o melhor valor do RMSE dessa rede é comparado com o armazenado na variável fixa, caso esse valor fosse menor que o armazeado, ele o substitui. Assim, a rede com o valor menor também substitui a rede já colocada na variável que armazena os hiperparâmetros.
+
+Por fim, a rede com melhor arquitetura é selecionada e, treinada, novamente por uma quantidae maior de eras buscando minimizar ainda mais o RMSE.
 
 # Resultados e Discussões
 
+Após o treinamento e teste de diferentes arquiteturas de redes neurais MLP para modelagem de nanomateriais, observamos resultados promissores em termos de desempenho. Utilizamos uma variedade de arquiteturas, ajustando o número de camadas e neurônios em cada camada para encontrar a configuração mais adequada.
 
+Ao fim dos testes, observamos consistentemente bons valores de RMSE (Root Mean Square Error), indicando que nossos modelos foram capazes de fazer previsões precisas em relação aos dados de teste.
+
+Esses resultados validam a eficácia da abordagem de rede neural MLP para modelagem de nanomateriais e sugerem que esta técnica pode ser aplicada com sucesso em uma variedade de problemas relacionados aos materiais em escala nanométrica.
+
+No entanto, é importante ressaltar que a avaliação dos resultados é apenas um primeiro passo na compreensão abrangente do comportamento dos nanomateriais. Pesquisas futuras podem se concentrar em explorar outras métricas de desempenho, investigar a interpretabilidade dos modelos desenvolvidos e realizar validações adicionais para garantir a robustez e generalização dos resultados.
 
 # Conclusão
 
+Nesta revisão, exploramos a importância dos nanomateriais e sua vasta gama de aplicações em diversas áreas, desde a catalisação até a medicina. A manipulação precisa das propriedades dos nanomateriais tem sido uma área de pesquisa em crescimento devido ao seu potencial para revolucionar tecnologias existentes e criar novas soluções para desafios atuais.
 
+Para entender melhor e otimizar as propriedades dos nanomateriais, destacamos o uso da Rede Neural tipo MLP como uma ferramenta. A capacidade das redes neurais de aprender padrões complexos nos dados e fazer previsões precisas as torna ideais para modelar e prever o comportamento de materiais em escala nanométrica. Através do treinamento da MLP com conjuntos de dados adequados, podemos aprimorar nossa compreensão dos fatores que influenciam as propriedades dos nanomateriais e otimizar seu design para aplicações específicas.
 
-# Curiosidades
-
-Ao conduzir a validação cruzada em todos os modelos, independentemente de aplicar o PCA ou a validação VIF, os hiperparâmetros otimizados pela validação cruzada permanecem consistentes. Essa consistência sugere uma estabilidade nos hiperparâmetros identificados, independentemente do método específico de tratamento de dados escolhido.
-Será se isso persiste em outros datasets ou apenas no nosso?
+Em suma, o estudo e a aplicação da Rede Neural MLP em conjunto com a manipulação de datasets estruturados representam uma abordagem poderosa e interdisciplinar para avançar nosso entendimento e aplicação dos nanomateriais. Esperamos que este trabalho inspire mais pesquisas e investimentos na área, levando a avanços significativos e inovações em nanotecnologia e ciência dos materiais.
 
 # Referências
 
@@ -118,6 +134,9 @@ Será se isso persiste em outros datasets ou apenas no nosso?
 [9] Detecting Multicollinearity with VIF – Python | geeks for geeks. Disponível em: <https://www.geeksforgeeks.org/detecting-multicollinearity-with-vif-python/>. Acesso em: 02 mai. 2024.
 
 [10] Perceptron Multi-Camadas (MLP) | icmc usp. Disponível em: <https://sites.icmc.usp.br/andre/research/neural/MLP.htm>. Acesso em: 03 mai. 2024.
+
+[11] Relu | Função de ativação:
+https://www.deeplearningbook.com.br/funcao-deativacao/#:~:text=ReLU%20é%20a%20função%20de,neurônios%20ativados%20pela%20função%20ReLU. Acesso em: 03 mai. 2024.
 
 [11] Métricas para Regressão: Entendendo as métricas R², MAE, MAPE, MSE e RMSE | medium. Disponível em: <https://medium.com/data-hackers/prevendo-n%C3%BAmeros-entendendo-m%C3%A9tricas-de-regress%C3%A3o-35545e011e70>. Acesso em: 03 mai. 2024.
 
