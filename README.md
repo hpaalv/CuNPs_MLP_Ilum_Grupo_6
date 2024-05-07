@@ -62,6 +62,10 @@ Durante a análise detalhada, identificou-se que o conjunto continha muitos dado
 
 FALAR SOBRE A NORMALIZAÇÃO E SOBRE A LOGARITMIZAÇÃO
 
+Aqui está uma versão revisada do texto:
+
+"Durante uma sessão de instrução em sala de aula, o docente sugeriu a aplicação de normalização e logaritmização nos dados, visando a redução da dimensionalidade. Após a execução do procedimento dropna, onde as linhas contendo valores NaN foram eliminadas, procedeu-se à segunda etapa de logaritmização. Contudo, foi constatado que muitos dos dados continham valores nulos. O logaritmo de 0 resulta em uma indefinição matemática. Nas bibliotecas utilizadas para o cálculo do logaritmo, esse resultado é representado por um valor NaN. Consequentemente, surgiram desafios durante o treinamento da rede, devido à disparidade na quantidade de dados entre o conjunto X e Y."
+
 O conjunto foi submetido a uma análise de multicolinearidade (Seleção VIF - Variance Inflation Factor). A multicolinearidade existe no momento em que duas ou mais variáveis independentes em um modelo de regressão múltipla apresentam alta correlação entre si. Quando algumas características são muito correlacionadas, pode-se ter dificuldade em diferenciar entre seus efeitos individuais sobre a variável dependente, ou seja, quando há multicolinearidade significativa entre as variáveis independentes em um modelo, isso pode introduzir viés nos coeficientes de regressão e afetar a interpretabilidade do modelo. O VIF funciona calculando a multicolinearidade de cada variável independente (coluna) em relação às outras variáveis independentes e com isso ele retorna um valor, quanto maior o valor do VIF para uma variável independente, maior é a multicolinearidade dessa variável com as outras variáveis independentes. [9].
 
 O VIF implementado no código presente neste repositório foi disponibilizado pelo docente Daniel Roberto Cassar, que ministra a Disciplina de Redes Neurais e Algoritmos Genéticos da Universidade ILUM-Escola de Ciência. O seu funcionamento procede da seguinte maneira:
