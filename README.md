@@ -60,11 +60,9 @@ Inicialmente, procedeu-se com a importação das bibliotecas necessárias e dos 
 
 Durante a análise detalhada, identificou-se que o conjunto continha muitos dados e grande parte deles eram valores nulos, por isso a implementação do método "dropna" foi necessária. Os dados restantes foram divididos entre features e targets, cujos targets são os valores de energia total e energia de formação das nanopartículas de cobre, e após em treino e teste. As porcentagens usadas como parâmetros para tal atividade foram definidas como 90% para treino e 10% para teste, com a semente aleatória sendo 10. A semente aleatória é um número utilizado para inicializar o gerador de números aleatórios garantindo que os resultados de operações que envolvem aleatoriedade possam ser reproduzíveis.[8]
 
-FALAR SOBRE A NORMALIZAÇÃO E SOBRE A LOGARITMIZAÇÃO
+Durante uma sessão de instrução em sala de aula, o docente sugeriu a aplicação de normalização e logaritmização nos dados, para a redução da dimensionalidade. Após a execução do procedimento dropna, onde as linhas contendo valores NaN foram eliminadas, procedeu-se à segunda etapa de logaritmização. Contudo, foi constatado que muitos dos dados continham valores nulos. O logaritmo de 0 resulta em uma indefinição matemática. Nas bibliotecas utilizadas para o cálculo do logaritmo, esse resultado é representado por um valor NaN. Consequentemente, surgiram desafios durante o treinamento da rede, devido à disparidade na quantidade de dados entre o conjunto X e Y resultando como opçõa para o grupo não realizar a logarimização.
 
-Aqui está uma versão revisada do texto:
-
-"Durante uma sessão de instrução em sala de aula, o docente sugeriu a aplicação de normalização e logaritmização nos dados, visando a redução da dimensionalidade. Após a execução do procedimento dropna, onde as linhas contendo valores NaN foram eliminadas, procedeu-se à segunda etapa de logaritmização. Contudo, foi constatado que muitos dos dados continham valores nulos. O logaritmo de 0 resulta em uma indefinição matemática. Nas bibliotecas utilizadas para o cálculo do logaritmo, esse resultado é representado por um valor NaN. Consequentemente, surgiram desafios durante o treinamento da rede, devido à disparidade na quantidade de dados entre o conjunto X e Y."
+Porém a noralização foi feita sem problema algum. A escolhida foi a normalização pelo máximo absoluto, que consiste em um método de pré-processamento de dados ao qual cada valor presente no conjunto é submetido a uma divisão pelo valor máximo encontrado. Isso resulta em uma escala onde o valor máximo é 1 e os demais valores são proporcionais a esse máximo.
 
 O conjunto foi submetido a uma análise de multicolinearidade (Seleção VIF - Variance Inflation Factor). A multicolinearidade existe no momento em que duas ou mais variáveis independentes em um modelo de regressão múltipla apresentam alta correlação entre si. Quando algumas características são muito correlacionadas, pode-se ter dificuldade em diferenciar entre seus efeitos individuais sobre a variável dependente, ou seja, quando há multicolinearidade significativa entre as variáveis independentes em um modelo, isso pode introduzir viés nos coeficientes de regressão e afetar a interpretabilidade do modelo. O VIF funciona calculando a multicolinearidade de cada variável independente (coluna) em relação às outras variáveis independentes e com isso ele retorna um valor, quanto maior o valor do VIF para uma variável independente, maior é a multicolinearidade dessa variável com as outras variáveis independentes. [9].
 
@@ -80,36 +78,17 @@ Durante o treinamento do MLP, utiliza-se o método de backpropagation para ajust
 
 O treinamento supervisionado do MLP ocorre em dois passos. Primeiro, um padrão é apresentado à camada de entrada, e a resposta é calculada até a camada de saída. Em seguida, o erro é propagado de volta para ajustar os pesos das conexões, repetindo esse processo até que o erro seja minimizado e a rede neural produza resultados precisos.[10].
 
-FALAR COMO QUE FOI DISCUTIDOS A ESCOLHA DOS HIPERPARÂMETROS
+Para a escola dos hiperparâmetros foi pensado a necessidade de uma rede que variasse a quantidade de neurônios e camadas, para que a melhor configuração possível dos dados fosse encontrada. Os hiperparâmetros foram definidos em intervalos para que a MLP pudesse variar em diferentes arquiteturas a sua estrutura, porém sempre com os mesmos dados de entrada e saísa sem alterar a quantidade de neurônios nessas camadas nas diversas conformações.
+
+Com os hiperparâmetros definidos, um loop que iterou de forma a criar e testar várias redes foi inserido no código, vairando a quantidade de camadas e neurônios como proposto. Para isso, criou-se duas variáveis, uma para armazenar os hiperparâmetros (a rede sem si) e outra que armazena o valor do MSE [11] (métrica adotada pelo grupo). Assim, sempre que uma nova rede fosse criada, o melhor valor do MSE dessa rede é comparado com o armazenado na variável fixa, caso esse valor fosse menor que o armazeado, ele o substitui. Assim, a rede com o valor menor também substitui a rede já colocada na variável que armazena os hiperparâmetros.
 
 # Resultados e Discussões
 
-As comparações de eficiência entre os modelos de predição foram conduzidas por meio da diferênça entre os desempenhos dos diferentes hiperparâmetros. De maneira geral, MSE em modelos de regressão refere-se a métricas que avaliam o desempenho do modelo na tarefa de atribuir rótulos de classe a amostras. Essas métricas são utilizadas para quantificar quão bem o modelo está fazendo suas previsões. Quanto mais próximo de 1 é o valor da quantificação, melhor o modelo.
 
-Ao explorar os modelos de previsão nos três conjuntos de dados distintos, pode-se ter uma compreensão da precisão de suas predições.
-
-Conforme mencionado anteriormente, há três conjuntos de dados, cada um tratado de maneiras diferentes. Três modelos distintos foram aplicados a cada conjunto de dados para comparação, e constatou-se que, para o modelo KNN, o conjunto de dados, ao ser analisado com o SCORE, que obteve a melhor pontuação foi aquele tratado apenas com VIF, alcançando uma precisão de 0.821. Os demais conjuntos, tratados apenas com PCA, obtiveram uma pontuação de 0.814, enquanto aqueles que receberam tratamento tanto de VIF quanto de PCA registraram uma pontuação de 0.795.
-
-Para o modelo de Árvore de Decisão, ao analisar o SCORE, o conjunto de dados que obteve a melhor pontuação foi aquele tratado apenas com VIF, alcançando uma precisão de 0.803. Os demais conjuntos, tratados apenas com PCA, registraram uma pontuação de 0.793, enquanto aqueles que receberam tratamento tanto de VIF quanto de PCA obtiveram uma pontuação de 0.787.
-
-Para o modelo de Floresta Aleatória, ao examinar o SCORE, o conjunto de dados que apresentou o desempenho mais destacado foi aquele tratado exclusivamente com VIF, atingindo uma precisão de 0.846. Nos outros conjuntos, que foram submetidos apenas ao PCA, a pontuação foi de 0.830, enquanto aqueles que receberam tratamento tanto de VIF quanto de PCA registraram um SCORE de 0.831. 
-
-Os modelos de Floresta Aleatória, após o tratamento com SMOTE, apresentaram resultados idênticos para os três conjuntos de dados.
 
 # Conclusão
 
-Os resultados obtidos ao explorar diferentes modelos de predição em conjuntos de dados tratados de maneiras distintas revelaram curiosidades sobre o desempenho desses algoritmos. Como visto, para o algoritmo KNN, o conjunto de dados tratado exclusivamente com VIF demonstrou uma precisão superior, destacando a eficácia desse método específico de tratamento. Já para o algoritmo de Árvore de Decisão e Floresta Aleatória, observou-se que o tratamento com VIF também proporcionou um desempenho superior, evidenciando a influência positiva desse método nesse contexto.
 
-É interessante notar que, ao aplicar o SMOTE aos modelos de Floresta Aleatória, os resultados foram consistentes entre os conjuntos de dados, indicando que essa técnica de balanceamento não teve um impacto diferenciado nos conjuntos analisados.
-
-A escolha adequada do método de tratamento de dados e do algoritmo pode ter um impacto significativo no desempenho dos modelos de Machine Learning. Cada abordagem tem suas vantagens e pode ser mais apropriada dependendo das características específicas do conjunto de dados e dos objetivos da análise. A análise cuidadosa desses resultados permite tomar decisões mais informadas na escolha e otimização de modelos para tarefas futuras.
-
-Portanto o melhor modelo para o conjunto de dados proposto nesse trabalho é o modelo de Floresta Aleatória com dados tratados com VIF. 
-
-# Planos futuros
-
-* Tentar abordar o mesmo dataset, porém agora com séries temporais para entender como funciona esse método de predição e como os dados se comportam diante disso;
-* Utilizar o mesmo modelo em dados brasileiros;
 
 # Curiosidades
 
@@ -132,7 +111,7 @@ Será se isso persiste em outros datasets ou apenas no nosso?
 
 [6] Dados estruturados de conjunto de dados | Central da Pesquisa Google | Documentação. Disponível em: <https://developers.google.com/search/docs/appearance/structured-data/dataset?hl=pt-br>. Acesso em: 11 nov. 2023.
 ‌
-[7] Pandas. DataFrame.dropna | Pandas. Disponível em: <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html>. Acesso em: 02 mai. 2024.
+[7] Pandas. DataFrame.dropna | Pandas | Documentação. Disponível em: <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html>. Acesso em: 02 mai. 2024.
 
 [8] Python Random seed() Method | w3 schools. Disponível em: <https://www.w3schools.com/python/ref_random_seed.asp>. Acesso em: 02 mai. 2024.
 
@@ -140,4 +119,5 @@ Será se isso persiste em outros datasets ou apenas no nosso?
 
 [10] Perceptron Multi-Camadas (MLP) | icmc usp. Disponível em: <https://sites.icmc.usp.br/andre/research/neural/MLP.htm>. Acesso em: 03 mai. 2024.
 
-[11]  "O Algoritmo da Floresta Aleatória" | Medium - Machina Sapiens. Disponível em: <https://medium.com/machina-sapiens/o-algoritmo-da-floresta-aleat%C3%B3ria-3545f6babdf8>. Acesso em: 15 nov. 2023.
+[11] Métricas para Regressão: Entendendo as métricas R², MAE, MAPE, MSE e RMSE | medium. Disponível em: <https://medium.com/data-hackers/prevendo-n%C3%BAmeros-entendendo-m%C3%A9tricas-de-regress%C3%A3o-35545e011e70>. Acesso em: 03 mai. 2024.
+
